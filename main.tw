@@ -1,0 +1,128 @@
+:: StoryTitle
+Multireplace
+
+:: StoryData
+{
+    "ifid": "3FB2130D-0973-4B71-B266-22E9C6BF9A06",
+    "format": "SugarCube",
+    "format-version": "2.36.1",
+    "start": "Main"
+}
+
+:: Widgets [widget]
+    <<nobr>>
+    <<widget "mr">>\
+    /* @{mcsingpro is|are} */
+        <<nobr>>\
+            <<if _args[0] is 0>>\
+                <span style="color:red; font-weight: bold;">Error: Invalid multireplace variable.</span>\
+            <<elseif _args[0] == true || _args[0] == false>>\
+                <<if _args[0] == true>>\
+                    <<print _args[1]>>\    
+                <<else>>\
+                    <<print _args[2]>>\
+                <</if>>\
+            <<elseif _args[0] > 0>>\
+                <<set _calledvar = (0 + _args[0])>>
+                <<print _args[_calledvar]>>\
+            <<else>>\
+                <span style="color:red; font-weight: bold;">Error: Invalid multireplace variable.</span>\
+            <</if>>\
+        <</nobr>>\
+    <</widget>>\
+    <</nobr>>
+
+    <<widget "upcase">>\
+        <<nobr>>\
+            <<print  _args[0] [0].toUpperCase() + _args[0] .slice(1)>>
+        <</nobr>>\
+    <</widget>>
+
+:: StoryInit
+    <<set $they = "they">>
+    <<set $them = "them">>
+    <<set $their = "their">>
+    <<set $singular = false>>
+
+    
+:: Main
+    Welcome to the demo for a multireplace widget for SugarCube.
+
+    If you're unfamiliar with how multireplace works, I'd reccommend reading [[this site|https://choicescriptdev.fandom.com/wiki/Multireplace]]. The principles are the same for this simple widget.
+
+    Which multireplace function would you like to test?
+
+    [[Booleans, or true/false.|Boolean Test]]
+    [[Number based.|Number Test]]
+    [[What happens if I enter a string or a number <= 0?|What If]]
+
+:: Boolean Test
+    For the boolean test, we'll take the usage of pronouns as an example. Some pronouns are singular while others are plural, hence requiring changes to text when it applies.
+
+    Which pronouns would you like to test?
+
+    [[She/her (singular)|Pronoun Test][$they = "she"; $them = "her"; $their = "her"; $singular = true]]
+    [[He/him (singular)|Pronoun Test][$they = "he"; $them = "him"; $their = "his"; $singular = true]]
+    [[They/them (plural)|Pronoun Test]]
+    [[Custom pronouns (singular/plural)|Custom Pronouns]]
+
+:: Custom Pronouns
+    Please enter your:
+
+    1. Subjective pronoun (e.g she, he, they)
+    <<textbox "$they" "they">>
+
+    2. Objective pronoun (e.g her, him, them)
+    <<textbox "$them" "them">>
+
+    3. Possessive pronoun (e.g her, his, their)
+    <<textbox "$their" "their">>
+
+    <<linkreplace "Done">>\
+    Do your pronouns work best with singular or plural verbs?
+
+    [[Singular (e.g he walks, she walks)|Pronoun Test][$singular = true]]
+    [[Plural (e.g they walk)|Pronoun Test]]
+    <</linkreplace>>\
+
+:: Pronoun Test
+    Since you've chosen ''<<mr $singular "singular" "plural">>'' pronouns, the ''singular'' variable has been set to $singular.
+
+    Here's an example sentence:
+
+    <<upcase $they>> <<mr $singular "walks" "walk">> into the gardens, looking for a place to rest $their head. Having to be at the constant beck and call of others had really started to take a toll on $them. <<upcase $they>> <<mr $singular "is" "are">> only human, after all.
+
+    You can [[choose another pronoun|Boolean Test]], or go back to the [[main page|Main]].
+    
+:: Number Test
+    <<set $home = 0>>\
+    Let's say you live in a fantasy town. Which of these would be your home?
+
+    [[1. A royal castle.|NT 2][$home = 1]]
+    [[2. The servant chambers of a lord's castle.|NT 2][$home = 2]]
+    [[3. A spacious estate.|NT 2][$home = 3]]
+    [[4. A farm near the riverbank.|NT 2][$home = 4]]
+    [[5. An orphanage.|NT 2][$home = 5]]
+
+:: NT 2
+    So you hail from <<mr $home "a noble castle" "the chambers of maids" "a wealthy piece of land" "a ranch on the edges of town" "one of the many destitute orphanages">>, huh? Sounds like an interesting origin story.
+
+    You can [[choose another home|Number Test]] or return to the [[main page|Main]].
+
+:: What If
+    <<set $whatif = "not working">>
+    The widget will produce a noticeable error text.
+
+    Go on and input a number less than 0 or a string into the textbox.
+
+    <<textbox "$whatif" "she sells sea shells by the sea shore">>
+
+    <<linkreplace "Done">>\
+    <<if $whatif >= 0>>\
+        Hey, that's not a negative number or a string. Would you like to [[try again|What If]] or go back to the [[main page|Main]]?
+    <<else>>\
+        <<mr $whatif "i" "tried so hard" "to lose it all">>
+
+        Back to the [[main page|Main]].
+    <</if>>\
+    <</linkreplace>>\
