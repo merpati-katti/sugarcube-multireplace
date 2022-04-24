@@ -20,6 +20,7 @@ _Each link changes the value of the $home variable, which will affect the output
 
 ```
     So you hail from <<mr $home "a noble castle" "the chambers of maids" "a wealthy piece of land" "a ranch on the edges of town" "one of the many destitute orphanages">>, huh? Sounds like an interesting origin story.
+    
 ```
    
 # Usage -- Booleans
@@ -27,5 +28,5 @@ _This example compares whether or not the user's pronouns are singular or plural
 
 ```
     <<upcase $they>> <<mr $singular "walks" "walk">> into the gardens, looking for a place to rest $their head. Having to be at the constant beck and call of others had really started to take a toll on $them. <<upcase $they>> <<mr $singular "is" "are">> only human, after all.
-```
     
+```
