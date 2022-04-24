@@ -3,7 +3,7 @@
 This is a simple widget macro that replicates the function of multireplace from Choicescript. You can read more about multireplace [here](https://choicescriptdev.fandom.com/wiki/Multireplace) or try out the demo for this widget [here](https://merpati-katti.itch.io/sugarcube-multireplace-demo).
 
 # General Usage
-Copy and paste the code from the multireplace macro file into a passage that has the 'widget' tag. 
+Copy and paste the code from the [multireplace macro file](https://github.com/merpati-katti/sugarcube-multireplace/blob/main/multireplace%20macro) into a passage that has the 'widget' tag. 
 
 When writing in Sugarcube, use:
 
