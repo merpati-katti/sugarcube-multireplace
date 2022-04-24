@@ -1,0 +1,20 @@
+<<nobr>>
+    <<widget "mr">>\
+        <<nobr>>\
+            <<if _args[0] is 0>>\
+                <span style="color:red; font-weight: bold;">Error: Invalid multireplace variable.</span>\
+            <<elseif _args[0] == true || _args[0] == false>>\
+                <<if _args[0] == true>>\
+                    <<print _args[1]>>\    
+                <<else>>\
+                    <<print _args[2]>>\
+                <</if>>\
+            <<elseif _args[0] > 0>>\
+                <<set _calledvar = (0 + _args[0])>>
+                <<print _args[_calledvar]>>\
+            <<else>>\
+                <span style="color:red; font-weight: bold;">Error: Invalid multireplace variable.</span>\
+            <</if>>\
+        <</nobr>>\
+    <</widget>>\
+    <</nobr>>
