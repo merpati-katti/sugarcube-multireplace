@@ -7,7 +7,7 @@ This is a simple widget macro that replicates the function of multireplace from 
 
 You can only use integers greater than 0 and booleans with this widget. Any other variable type will produce an error message.
 
-# Usage -- Positive Integers
+# Usage: Positive Integers
 Let's say you live in a fantasy town. Which of these would be your home?
 
     [[1. A royal castle.|NT 2][$home = 1]]
@@ -22,7 +22,7 @@ _Each link changes the value of the $home variable, which will affect the output
 So you hail from <<mr $home "a noble castle" "the chambers of maids" "a wealthy piece of land" "a ranch on the edges of town" "one of the many destitute orphanages">>, huh? Sounds like an interesting origin story.
 ```
    
-# Usage -- Booleans
+# Usage: Booleans
 _This example compares whether or not the user's pronouns are singular or plural. Try out the demo to see more._
 
 ```
