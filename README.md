@@ -3,6 +3,10 @@
 This is a simple widget macro that replicates the function of multireplace from Choicescript. You can read more about multireplace [here](https://choicescriptdev.fandom.com/wiki/Multireplace) or try out the demo for this widget [here](https://merpati-katti.itch.io/sugarcube-multireplace-demo).
 
 # General Usage
+Copy and paste the code from the multireplace macro file into a passage that has the 'widget' tag. 
+
+When writing in Sugarcube, use:
+
 ```<<mr $variablebeingtested "outcome 1" "outcome 2">>```
 
 You can only use integers greater than 0 and booleans with this widget. Any other variable type will produce an error message.
